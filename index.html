@@ -1,1 +1,40 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+  <div class="container-fluid">
+  <div class = "row text-center">
+  <h2>Cual es mi IP?</h2>
+  </div>
+  <div class = "row text-center">
+  <div class = "col-xs-12 well message">
+  ver el jason
+  </div>
+  </div>
+  <div class = "row text-center">
+  <div class = "col-xs-12">
+  <button id = "getIpinfo" class = "btn btn-primary">
+  Get Message
+  </button>
+  </div>
+  </div>
+  </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function() {
+  
+  $("#getIpinfo").on("click", function(){
+  
+  $.getJSON("http://ip-api.com/json", function(json) {
+  $(".message").html(JSON.stringify(json));
+  });
+  });
+  });
+  </script>
+</html>
